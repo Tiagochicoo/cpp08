@@ -6,35 +6,18 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:20:22 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/09 19:38:32 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:24:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 # include <iostream>
 # include <string>
+# include <array>
+# include <algorithm>
 
-template <class T>
-class Array
-{
-	private:
-		T *_array;
-		size_t _size;
+# include "Easyfind.tpp"
 
-	public:
-		Array();
-		Array(unsigned int n);
-		Array(const Array &src);
-		Array<T> &operator=(Array<T> const &rhs);
-		T& operator[](size_t i);            // subscript operator
-		
-		~Array();
-
-		size_t getSize() const;
-};
-
-#include "Easyfind.tpp"
-
-#endif /* ******************************************************** ARRAY_H */
+#endif /* ******************************************************** EASYFIND_H */

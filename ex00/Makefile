@@ -1,12 +1,12 @@
 PROG 		= easy
 CXX			= g++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -pedantic -g -fsanitize=address
 SRCS		= ./srcs/*.cpp
 INC			= ./includes
 
 all : $(PROG)
 
-$(PROG) : $(SRCS) $(INC)
+$(PROG) : $(SRCS) $(INC)/*.tpp
 	@$(CXX) $(CXXFLAGS) $(SRCS) -I $(INC) -o $(PROG)
 	@printf "\e[38;5;46m ╔════════════════════════════════════╗\e[0m\n"
 	@printf "\e[38;5;46m█▓▒░        Compiled Easy           ░▒▓█ \e[0m\n"
