@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:57 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/12 20:04:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/09/16 09:48:38 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,26 @@ class Span
 		~Span();
 
 		Span &		operator=(Span const & rhs);
+		class OutOfBoundsException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "Span: Out of bounds exception";
+				};
+		};
+		class NoSpanFoundException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "Span: No span found exception";
+				};
+		};
 
 		void addNumber(int number);
-		// unsigned int shortestSpan(void) const;
-		// unsigned int longestSpan(void) const;
+		unsigned int shortestSpan(void) const;
+		unsigned int longestSpan(void) const;
 		unsigned int getMax(void) const;
 
 };

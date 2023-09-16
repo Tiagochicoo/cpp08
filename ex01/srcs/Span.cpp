@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:54 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/12 20:04:16 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/09/16 09:48:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,37 @@ std::ostream &			operator<<( std::ostream & o, Span const & i )
 void Span::addNumber(int number)
 {
 	if (_span.size() != _max)
+	{
 		this->_span.push_back(number);
+		std::cout << "Number " << number << " added!" << std::endl;
+	}
 	else
-		throw std::exception();
+		throw Span::OutOfBoundsException();
 }
 
-// unsigned int Span::shortestSpan(void) const
-// {
-// 	return 1;
-// }
+unsigned int Span::shortestSpan(void) const
+{
+	if (_span.size() < 2)
+		throw Span::NoSpanFoundException();
+	std::vector<int> tmp = _span;
+	std::sort(tmp.begin(), tmp.end());
+	unsigned int shortest = tmp[1] - tmp[0];
+	for (unsigned int i = 1; i < tmp.size(); i++)
+	{
+		if (tmp[i] - tmp[i - 1] < (int)shortest)
+			shortest = tmp[i] - tmp[i - 1];
+	}
+	return shortest;
+}
 
-// unsigned int Span::longestSpan(void) const
-// {
-// 	return 1;
-// }
+unsigned int Span::longestSpan(void) const
+{
+	if (_span.size() < 2)
+		throw Span::NoSpanFoundException();
+	std::vector<int> tmp = _span;
+	std::sort(tmp.begin(), tmp.end());
+	return tmp[tmp.size() - 1] - tmp[0];
+}
 
 // /*
 // ** --------------------------------- ACCESSOR ---------------------------------
