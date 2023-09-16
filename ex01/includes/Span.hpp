@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:57 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 09:48:38 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/09/16 10:06:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class Span
 		};
 
 		void addNumber(int number);
+		void addManyNumbers(unsigned int amount);
 		unsigned int shortestSpan(void) const;
 		unsigned int longestSpan(void) const;
 		unsigned int getMax(void) const;

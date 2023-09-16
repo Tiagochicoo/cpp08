@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:54 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 09:48:56 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/09/16 10:07:03 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,17 @@ void Span::addNumber(int number)
 	}
 	else
 		throw Span::OutOfBoundsException();
+}
+
+void Span::addManyNumbers(unsigned int amount)
+{
+	if (_span.size() + amount > _max)
+		throw Span::OutOfBoundsException();
+	for (unsigned int i = 0; i < amount; i++)
+	{
+		this->_span.push_back(rand() % 10000);
+		std::cout << "Number " << _span[_span.size() - 1] << " added!" << std::endl;
+	}
 }
 
 unsigned int Span::shortestSpan(void) const

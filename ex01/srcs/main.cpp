@@ -6,11 +6,12 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:20:18 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 09:57:23 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/09/16 10:09:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <vector>
 #include "Span.hpp"
 
 int main()
@@ -59,7 +60,7 @@ int main()
 		// testing shortestSpan()
 		try 
 		{
-			std::cout << "Shortest span: ";
+			std::cout << "ShortestSpan(): ";
 			std::cout << sp.shortestSpan() << std::endl;
 		}
 		catch (std::exception &e)
@@ -70,7 +71,7 @@ int main()
 		// testing longestSpan()
 		try 
 		{
-			std::cout << "Longest span: ";
+			std::cout << "LongestSpan(): ";
 			std::cout << sp.longestSpan() << std::endl;
 		}
 		catch (std::exception &e)
@@ -78,6 +79,14 @@ int main()
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << "\nTesting addManyNumbers():" << std::endl;
+	{
+		Span sp = Span(42);	
 
+		sp.addManyNumbers(42);
+		sp.longestSpan();
+		sp.shortestSpan();
+	}
+	
 	return 0;
 }
