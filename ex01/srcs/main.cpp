@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:20:18 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 09:49:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/09/16 09:57:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,68 @@
 
 int main()
 {
-	Span sp = Span(3);
-	
-	// testing addNumber()
-	try 
+	std::cout << "Subject main test:" << std::endl;
 	{
-		sp.addNumber(0);
-		sp.addNumber(2);
-		sp.addNumber(42);
-		// sp.addNumber(4);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+		Span sp = Span(5);
 
-	// testing shortestSpan()
-	try 
-	{
-		std::cout << "Shortest span: ";
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		
 		std::cout << sp.shortestSpan() << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	// testing longestSpan()
-	try 
-	{
-		std::cout << "Longest span: ";
 		std::cout << sp.longestSpan() << std::endl;
 	}
-	catch (std::exception &e)
+	std::cout << "\n100k numbers test:" << std::endl;
 	{
-		std::cout << e.what() << std::endl;
+		Span sp = Span(100000);
+
+		for (int i = 0; i < 100000; i++)
+			sp.addNumber(rand() % 10000);
+		
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+
+	}
+	std::cout << "\nException test:" << std::endl;
+	{
+		Span sp = Span(3);
+		
+		// testing addNumber()
+		try 
+		{
+			sp.addNumber(0);
+			sp.addNumber(2);
+			sp.addNumber(42);
+			sp.addNumber(4);
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+
+		// testing shortestSpan()
+		try 
+		{
+			std::cout << "Shortest span: ";
+			std::cout << sp.shortestSpan() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+
+		// testing longestSpan()
+		try 
+		{
+			std::cout << "Longest span: ";
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
 
 	return 0;
