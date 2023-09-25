@@ -94,12 +94,14 @@ unsigned int Span::shortestSpan(void) const
 	if (_span.size() < 2)
 		throw Span::NoSpanFoundException();
 	std::vector<int> tmp = _span;
-	std::sort(tmp.begin(), tmp.end());
-	unsigned int shortest = tmp[1] - tmp[0];
+
+	unsigned int shortest = UINT_MAX;
 	for (unsigned int i = 1; i < tmp.size(); i++)
 	{
-		if (tmp[i] - tmp[i - 1] < (int)shortest)
-			shortest = tmp[i] - tmp[i - 1];
+		for (unsigned int j = i + 1; j < tmp.size(); j++)
+		{
+			
+		}
 	}
 	return shortest;
 }
