@@ -1,6 +1,6 @@
 NAME 		= easy
 CXX			= g++
-CXXFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -g -std=c++98 -pedantic -fsanitize=address
 SRCS		= ./srcs/*.cpp
 INC			= ./includes
 

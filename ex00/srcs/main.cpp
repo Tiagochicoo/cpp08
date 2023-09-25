@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <array>
 #include <vector>
 #include <list>
 // #include <map>
@@ -20,7 +19,6 @@
 
 int main()
 {
-	std::array<int, 3> arr = {1, 2, 3};
 	std::vector<int> vec;
 	std::list<int> lst;
 	std::list<int> empty;
@@ -41,11 +39,7 @@ int main()
 
 	// std::cout << map.begin()->first << std::endl;
 
-	std::cout << "Array " << std::endl;
-	easyfind(arr, 2);
-	easyfind(arr, 5);
-
-	std::cout << "\nVector " << std::endl;
+	std::cout << "Vector " << std::endl;
 	easyfind(vec, 2);
 	easyfind(vec, 5);
 

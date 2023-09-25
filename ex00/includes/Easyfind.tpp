@@ -17,15 +17,19 @@
 # include "Easyfind.hpp"
 
 template <typename T>
-void easyfind(T& a, int b)
+void easyfind(T a, int b)
 {
 	if (a.empty())
 		std::cout << "Container is empty!" << std::endl;
-	// if nothing found, std::find() returns a.end()
-	else if (std::find(a.begin(), a.end(), b) != a.end())
-		std::cout << "Found " << b << " in provided container!" << std::endl;
-	else
-		std::cout << "Sorry, " << b << " not found!" << std::endl;
+	for (typename T::iterator itr = a.begin(); itr != a.end(); itr++)
+	{
+		if (b == *itr)
+		{
+			std::cout << "Found " << b << " in provided container!" << std::endl;
+			return ;
+		}
+	}
+	std::cout << "Sorry, " << b << " not found!" << std::endl;
 }
 
 #endif
