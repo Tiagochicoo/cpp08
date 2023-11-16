@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:20:18 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 11:26:23 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/16 21:40:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,44 @@
 #include <list>
 #include "MutantStack.hpp"
 
+template <typename Container>
+void containerTest(const char* containerName)
+{
+    std::cout << "\nTesting " << containerName << ":" << std::endl;
+
+    Container container;
+
+    container.push_back(5);
+    container.push_back(17);
+
+    std::cout << container.back() << std::endl;
+
+    container.pop_back();
+
+    std::cout << container.size() << std::endl;
+
+    container.push_back(3);
+    container.push_back(5);
+    container.push_back(737);
+    container.push_back(0);
+
+    typename Container::iterator it = container.begin();
+    typename Container::iterator ite = container.end();
+
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+
+    std::stack<int, Container> s(container);
+}
+
 int main()
 {
-	std::cout << "Subject main test:" << std::endl;
+	std::cout << "Testing MutantStack:" << std::endl;
 	{
 		MutantStack<int> mstack;
 
@@ -47,37 +82,16 @@ int main()
 		}
 		std::stack<int> s(mstack);
 	}
-	std::cout << "\nList test:" << std::endl;
 	{
-		std::list<int> mstack;
-
-		mstack.push_back(5);
-		mstack.push_back(17);
-
-		std::cout << mstack.back() << std::endl;
-
-		mstack.pop_back();
-
-		std::cout << mstack.size() << std::endl;
-
-		mstack.push_back(3);
-		mstack.push_back(5);
-		mstack.push_back(737);
-		//[...]
-		mstack.push_back(0);
-
-		std::list<int>::iterator it = mstack.begin();
-		std::list<int>::iterator ite = mstack.end();
-
-		++it;
-		--it;
-		while (it != ite)
-		{
-			std::cout << *it << std::endl;
-			++it;
-		}
-		std::list<int> s(mstack);
+		// Test Other Container Types
+		containerTest<std::list<int> >("std::list");
+		containerTest<std::vector<int> >("std::vector");
+		containerTest<std::deque<int> >("std::deque");
 	}
+
+	// std::set and std::map are not supported by the stack container adapter
+	// they don't have a "top" element and you can't pop elements from a specific position
+	// like a stack. They are not LIFO containers.
 
 	return 0;
 }

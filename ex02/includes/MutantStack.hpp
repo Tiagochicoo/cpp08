@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 10:16:08 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 11:26:25 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/16 21:17:50 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <stack>
 # include <cstdlib>
 # include <algorithm>
+#include <vector>
+#include <list>
+#include <deque>
+#include <set>
+#include <map>
 
 template <class T>
 class MutantStack : public std::stack<T>

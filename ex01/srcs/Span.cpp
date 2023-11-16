@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:54 by tpereira          #+#    #+#             */
-/*   Updated: 2023/11/16 19:58:44 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/16 21:00:43 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void Span::addManyNumbers(unsigned int amount)
 	for (unsigned int i = 0; i < amount; i++)
 	{
 		_span.push_back(rand() % 10000);
-		std::cout << "Number " << _span[_span.size() - 1] << " added!" << std::endl;
+		std::cout << "Number " << _span[_span.back()] << " added!" << std::endl;
 	}
 }
 
