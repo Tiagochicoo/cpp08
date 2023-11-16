@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:54 by tpereira          #+#    #+#             */
-/*   Updated: 2023/11/16 19:46:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:58:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,29 +99,36 @@ unsigned int Span::shortestSpan() const
         throw Span::NoSpanFoundException();
 
     std::vector<int>::const_iterator min = _span.begin();
-    for (std::vector<int>::const_iterator it = _span.begin(); it != _span.end(); ++it) {
-        if (*it < *min) {
-            min = it;
-        }
-    }
+	std::vector<int>::const_iterator next = min + 1;
+	unsigned int shortestSpan = static_cast<unsigned int>(std::abs(*next - *min));
 
-    return static_cast<unsigned int>(*min - *_span.begin());
-}
-
-
-unsigned int Span::longestSpan(void) const
-{
-	if (_span.size() < 2)
-		throw Span::NoSpanFoundException();
-
-	std::vector<int>::const_iterator max = _span.begin();
-	for (std::vector<int>::const_iterator it = _span.begin(); it != _span.end(); ++it) {
-		if (*it > *max) {
-			max = it;
-		}
+	for (; next != _span.end(); ++min, ++next)
+	{
+		unsigned int currentSpan = static_cast<unsigned int>(std::abs(*next - *min));
+		if (currentSpan < shortestSpan)
+			shortestSpan = currentSpan;
 	}
 
-	return (*max - *_span.begin());
+	return shortestSpan;
+}
+
+unsigned int Span::longestSpan() const
+{
+    if (_span.size() < 2)
+        throw Span::NoSpanFoundException();
+
+    std::vector<int>::const_iterator max = _span.begin();
+    std::vector<int>::const_iterator next = max + 1;
+    unsigned int longestSpan = static_cast<unsigned int>(std::abs(*next - *max));
+
+    for (; next != _span.end(); ++max, ++next)
+    {
+        unsigned int currentSpan = static_cast<unsigned int>(std::abs(*next - *max));
+        if (currentSpan > longestSpan)
+            longestSpan = currentSpan;
+    }
+
+    return longestSpan;
 }
 
 // /*
