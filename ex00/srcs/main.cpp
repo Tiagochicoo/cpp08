@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:20:18 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 08:49:38 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:38:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int main()
 
 	// std::cout << map.begin()->first << std::endl;
 
-	std::cout << "Vector " << std::endl;
+	std::cout << "Vector (1,2,3)" << std::endl;
 	easyfind(vec, 2);
 	easyfind(vec, 5);
 
-	std::cout << "\nList " << std::endl;
+	std::cout << "\nList (1,2,3)" << std::endl;
 	easyfind(lst, 2);
 	easyfind(lst, 5);
 
