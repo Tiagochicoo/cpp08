@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:57 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 10:06:29 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:45:10 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <vector>
 # include <climits>
+# include <ctime>
 
 class Span
 {

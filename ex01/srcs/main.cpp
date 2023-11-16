@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:20:18 by tpereira          #+#    #+#             */
-/*   Updated: 2023/09/16 10:09:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:09:19 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int main()
 {
-	std::cout << "Subject main test:" << std::endl;
 	{
+		std::cout << "Subject main test:" << std::endl;
 		Span sp = Span(5);
 
 		sp.addNumber(6);
@@ -29,19 +29,21 @@ int main()
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
-	std::cout << "\n100k numbers test:" << std::endl;
-	{
-		Span sp = Span(100000);
+	// // testing with 100k numbers (Slow)
+	// {
+	// 	std::cout << "\n100k numbers test:" << std::endl;
+	// 	Span sp = Span(100000);
 
-		for (int i = 0; i < 100000; i++)
-			sp.addNumber(rand() % 10000);
+	// 	for (int i = 0; i < 100000; i++)
+	// 		sp.addNumber(rand() % 10000);
 		
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+	// 	std::cout << sp.shortestSpan() << std::endl;
+	// 	std::cout << sp.longestSpan() << std::endl;
 
-	}
-	std::cout << "\nException test:" << std::endl;
+	// }
+	
 	{
+		std::cout << "\nOut of bounds exception test:" << std::endl;
 		Span sp = Span(3);
 		
 		// testing addNumber()
@@ -79,13 +81,14 @@ int main()
 			std::cout << e.what() << std::endl;
 		}
 	}
-	std::cout << "\nTesting addManyNumbers():" << std::endl;
+
 	{
-		Span sp = Span(42);	
+		std::cout << "\nTesting addManyNumbers():" << std::endl;
+		Span sp = Span(42);
 
 		sp.addManyNumbers(42);
-		sp.longestSpan();
-		sp.shortestSpan();
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 	}
 	
 	return 0;
