@@ -56,6 +56,7 @@ class Span
 		unsigned int shortestSpan(void) const;
 		unsigned int longestSpan(void) const;
 		unsigned int getMax(void) const;
+		std::vector<int> getSpan(void) const;
 
 };
 

@@ -53,7 +53,9 @@ Span::~Span()
 Span &				Span::operator=( Span const & rhs )
 {
 	if (this != &rhs)
+	{
 		_max = rhs.getMax();
+	}
 	return *this;
 }
 
@@ -102,6 +104,9 @@ unsigned int Span::shortestSpan() const
 	std::vector<int>::const_iterator next = min + 1;
 	unsigned int shortestSpan = static_cast<unsigned int>(std::abs(*next - *min));
 
+	std::cout << *next << std::endl;
+	std::cout << *min << std::endl;
+
 	for (; next != _span.end(); ++min, ++next)
 	{
 		unsigned int currentSpan = static_cast<unsigned int>(std::abs(*next - *min));
@@ -138,6 +143,11 @@ unsigned int Span::longestSpan() const
 unsigned int Span::getMax(void) const
 {
 	return _max;
+}
+
+std::vector<int> Span::getSpan(void) const
+{
+    return _span;
 }
 
 /* ************************************************************************** */

@@ -14,6 +14,10 @@
 #include <vector>
 #include "Span.hpp"
 
+// TODO
+// Fix assignment operator - Done
+
+
 int main()
 {
 	{
@@ -84,9 +88,9 @@ int main()
 
 	{
 		std::cout << "\nTesting addManyNumbers():" << std::endl;
-		Span sp = Span(42);
+		Span sp = Span(2);
 
-		sp.addManyNumbers(42);
+		sp.addManyNumbers(2);
 		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 	}
