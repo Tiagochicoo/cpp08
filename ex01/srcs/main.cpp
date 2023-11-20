@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:20:18 by tpereira          #+#    #+#             */
-/*   Updated: 2023/11/16 19:09:19 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:58:21 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int main()
 
 	{
 		std::cout << "\nTesting addManyNumbers():" << std::endl;
-		Span sp = Span(2);
+		Span sp = Span(10);
 
-		sp.addManyNumbers(2);
+		sp.addManyNumbers(10);
 		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 	}

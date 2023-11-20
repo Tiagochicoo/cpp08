@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:54 by tpereira          #+#    #+#             */
-/*   Updated: 2023/11/16 21:00:43 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/20 22:20:35 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ Span::Span( Span const & src )
 	std::cout << "Span copy constructor called!" << std::endl;
 }
 
-
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
@@ -44,7 +43,6 @@ Span::~Span()
 {
 	std::cout << "Span destructor called!" << std::endl;
 }
-
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
@@ -55,6 +53,7 @@ Span &				Span::operator=( Span const & rhs )
 	if (this != &rhs)
 	{
 		_max = rhs.getMax();
+		_span = rhs.getSpan();
 	}
 	return *this;
 }
@@ -86,7 +85,7 @@ void Span::addManyNumbers(unsigned int amount)
 	if (_span.size() + amount > _max)
 		throw Span::OutOfBoundsException();
 
-	_span.resize(_span.size() + amount);
+	_span.reserve(_span.size() + amount);
 	
 	for (unsigned int i = 0; i < amount; i++)
 	{
@@ -103,9 +102,6 @@ unsigned int Span::shortestSpan() const
     std::vector<int>::const_iterator min = _span.begin();
 	std::vector<int>::const_iterator next = min + 1;
 	unsigned int shortestSpan = static_cast<unsigned int>(std::abs(*next - *min));
-
-	std::cout << *next << std::endl;
-	std::cout << *min << std::endl;
 
 	for (; next != _span.end(); ++min, ++next)
 	{
