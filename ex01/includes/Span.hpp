@@ -17,6 +17,7 @@
 # include <vector>
 # include <climits>
 # include <ctime>
+# include <cstdlib>
 
 class Span
 {

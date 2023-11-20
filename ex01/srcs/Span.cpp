@@ -84,12 +84,12 @@ void Span::addManyNumbers(unsigned int amount)
 	if (_span.size() + amount > _max)
 		throw Span::OutOfBoundsException();
 
-	_span.reserve(_span.size() + amount);
+	_span.resize(_span.size() + amount);
 	
 	for (unsigned int i = 0; i < amount; i++)
 	{
 		_span.push_back(rand() % 10000);
-		std::cout << "Number " << _span[_span.back()] << " added!" << std::endl;
+		std::cout << "Number " << _span[_span.size() - 1] << " added!" << std::endl;
 	}
 }
 
