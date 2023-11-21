@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:31:54 by tpereira          #+#    #+#             */
-/*   Updated: 2023/11/20 22:20:35 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:59:21 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Span::Span(unsigned int number)
 Span::Span( Span const & src )
 {
 	_span = src._span;
+	_max = src._max;
 	std::cout << "Span copy constructor called!" << std::endl;
 }
 
@@ -84,13 +85,16 @@ void Span::addManyNumbers(unsigned int amount)
 	std::srand(static_cast<unsigned int>(std::time(0)));
 	if (_span.size() + amount > _max)
 		throw Span::OutOfBoundsException();
-
-	_span.reserve(_span.size() + amount);
-	
-	for (unsigned int i = 0; i < amount; i++)
+	else
 	{
-		_span.push_back(rand() % 10000);
-		std::cout << "Number " << _span[_span.size() - 1] << " added!" << std::endl;
+		Span tempSpan(amount);
+		_span.reserve(_span.size() + amount);
+		for (unsigned int i = 0; i < amount; i++)
+		{
+			tempSpan._span.push_back(rand() % 10000);
+			std::cout << "Number " << tempSpan._span[tempSpan._span.size() - 1] << " added!" << std::endl;
+		}
+		_span.insert(_span.end(), tempSpan._span.begin(), tempSpan._span.end());
 	}
 }
 
